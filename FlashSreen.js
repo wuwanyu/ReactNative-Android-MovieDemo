@@ -13,41 +13,12 @@ var {
   Dimensions,
 } = React;
 
-
 var Animated = require('Animated');
-
-var REQUEST_URL = "http://news-at.zhihu.com/api/4/start-image/1080*1776";
-
-var COVER_KEY = '@WelcomeScreen:cover';
 
 var WINDOW_WIDTH = Dimensions.get('window').width;
 
 var FlashSreen = React.createClass({
-   fetchData: function() {
-    fetch(REQUEST_URL)
-      .then((response) => response.json())
-      .then((responseData) => {
-        //console.log(responseData);
-        try {
-          AsyncStorage.setItem(COVER_KEY, JSON.stringify(responseData));
-        } catch (error) {
-          console.error(error);
-        }
-      })
-      .done();
-  },
-   async _loadInitialState() {
-    try {
-      var value = await AsyncStorage.getItem(COVER_KEY);
-      var cover = JSON.parse(value);
-      console.log('saved: ' + cover);
-      if (value !== null){
-        this.setState({cover: cover});
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  },
+  
   getInitialState:function(){
     return {
       cover: null,
@@ -56,18 +27,16 @@ var FlashSreen = React.createClass({
   },
   //初始化之后
   componentDidMount:function(){
-
-      this.fetchData();
-      this._loadInitialState().done();
-      this.state.bounceValue.setValue(1);
-      Animated.timing(
-        this.state.bounceValue,
-        {
-          toValue: 1.2,
-          duration: 5000,
-        }
-      ).start();
-
+  
+          this.state.bounceValue.setValue(1);
+          Animated.timing(
+            this.state.bounceValue,
+            {
+              toValue: 1.2,
+              duration: 10000,
+            }
+          ).start();
+     
   },
 
   render: function() {
@@ -83,7 +52,7 @@ var FlashSreen = React.createClass({
     return (
       <View style={styles.container}>
         <Animated.Image
-          source={require("image!ic_launcher")}
+           source={{uri: "https://images.unsplash.com/photo-1441260038675-7329ab4cc264?h=1024"}}
           style={{
             flex: 1,
             width: WINDOW_WIDTH,
@@ -93,7 +62,7 @@ var FlashSreen = React.createClass({
             ]
           }} />
         <Text style={styles.text}>
-            么么哒，思密达！
+            欢迎您，亲爱的用户！
         </Text>
       </View>
     );

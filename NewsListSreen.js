@@ -20,10 +20,9 @@ var {
 } = React;
 
 var DrawerScreen=require('./DrawerScreen');
-
+var ImageSlideScreen=require('./ImageSlideScreen');
 
 var NEWS_URL = 'http://jandan.net/?oxwlxojflwblxbsapi=get_recent_posts&include=url,date,tags,author,title,comment_count,custom_fields&custom_fields=thumb_c,views&dev=1&page=1';
-
 
 var NewsListSreen = React.createClass({
 
@@ -106,7 +105,7 @@ onSelectItem:function(news:Object){
 render: function() {
 
  if(!this.state.loaded){
-     var content= <Text style={styles.loading}>i am loading</Text>;
+     var content= <Text style={styles.loading}>loading</Text>;
   }else{
      var content= this.state.dataSource.getRowCount() == 0?
       <Text>{this.state.msg}</Text>:
@@ -128,6 +127,7 @@ render: function() {
                 navIcon={require('image!ic_drawer')}
                 onIconClicked ={() => this.drawer.openDrawer()}
                 style={styles.toobar}/>
+        <ImageSlideScreen styles={styles.imageSlide}/>
        {content}
     </DrawerLayoutAndroid>
   );
@@ -183,8 +183,13 @@ var styles = StyleSheet.create({
     },
     loading:{
       fontSize:24,
-      textAlign:'center'
+      textAlign:'center',
+         flex: 1,
+    },
+    imageSlide:{
+        height:50,
     }
+    
 });
 
 module.exports = NewsListSreen;

@@ -28,7 +28,7 @@ var IMGS = [
 ];
 
 
-var ViewPageScreen = React.createClass({
+var ImageSlideScreen = React.createClass({
    getInitialState: function() {
     var dataSource = new ViewPager.DataSource({
       pageHasChanged: (p1, p2) => p1 !== p2,
@@ -63,8 +63,9 @@ var ViewPageScreen = React.createClass({
 var styles = StyleSheet.create({
   page: {
     width: deviceWidth,
+    height:260,
   },
 });
 
 
-module.exports = ViewPageScreen;
+module.exports = ImageSlideScreen;
