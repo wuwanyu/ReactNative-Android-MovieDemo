@@ -28,10 +28,10 @@
 
 
 ####解决问题：
-	ListView，Drawer，WebView，Navigate，AsyncStorage，splash animation
+	ListView，Drawer，WebView，Navigate，图片轮播,AsyncStorage，splash animation
 
 ####未解决问题：
-	图片轮播，下拉刷新，页面切换时的滑动效果
+	下拉刷新，页面切换时的滑动效果
 
 ----------
 

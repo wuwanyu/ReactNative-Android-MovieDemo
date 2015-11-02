@@ -19,7 +19,6 @@ var {
     TouchableNativeFeedback,
 } = React;
 
-
 var API_KEY = '7waqfqbprs7pajbz28mqf6vz';
 var API_URL = 'http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json';
 var PAGE_SIZE = 25;
@@ -27,6 +26,7 @@ var PARAMS = '?apikey=' + API_KEY + '&page_limit=' + PAGE_SIZE;
 var MOVIE_URL = API_URL + PARAMS;
 
 var DrawerScreen=require('./DrawerScreen');
+var ImageSlideScreen=require('./ImageSlideScreen');
 
 var MovieListScreen = React.createClass({
 
@@ -128,6 +128,7 @@ _renderRow:function(item: Object){
               navIcon={require('image!ic_drawer')}
               onIconClicked ={() => this.drawer.openDrawer()}
               style={styles.toobar}/>
+        <ImageSlideScreen/>
            {content}
     </DrawerLayoutAndroid>
     );
@@ -178,10 +179,11 @@ var styles = StyleSheet.create({
     backgroundColor:'#6FAEEC',
     height:50,
   },
-  loading:{
+   loading:{
       fontSize:24,
-      textAlign:'center'
-    }
+      textAlign:'center',
+       flex: 1,
+    },
 });
 
 module.exports = MovieListScreen;

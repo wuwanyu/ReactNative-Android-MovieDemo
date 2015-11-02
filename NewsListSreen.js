@@ -20,7 +20,6 @@ var {
 } = React;
 
 var DrawerScreen=require('./DrawerScreen');
-var ImageSlideScreen=require('./ImageSlideScreen');
 
 var NEWS_URL = 'http://jandan.net/?oxwlxojflwblxbsapi=get_recent_posts&include=url,date,tags,author,title,comment_count,custom_fields&custom_fields=thumb_c,views&dev=1&page=1';
 
@@ -127,7 +126,6 @@ render: function() {
                 navIcon={require('image!ic_drawer')}
                 onIconClicked ={() => this.drawer.openDrawer()}
                 style={styles.toobar}/>
-        <ImageSlideScreen styles={styles.imageSlide}/>
        {content}
     </DrawerLayoutAndroid>
   );
@@ -156,15 +154,15 @@ var styles = StyleSheet.create({
     backgroundColor:'#6FAEEC',
     height:50,
   },
-    newsrow:{
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: '#FFFFFF',
-        marginBottom:5,
-        borderRadius:3,
-        marginLeft:10,
-        marginRight:10,
-        padding:5,
+  newsrow:{
+      flex: 1,
+      flexDirection: 'row',
+      backgroundColor: '#FFFFFF',
+      marginBottom:5,
+      borderRadius:3,
+      marginLeft:10,
+      marginRight:10,
+      padding:5,
     },
      rightContainer: {
         marginHorizontal:10
@@ -186,9 +184,6 @@ var styles = StyleSheet.create({
       textAlign:'center',
          flex: 1,
     },
-    imageSlide:{
-        height:50,
-    }
     
 });
 
